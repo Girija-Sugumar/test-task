@@ -39,7 +39,7 @@ db.query(
 );
 
 app.get('/', (req, res) => {
-  res.send('Hello, this is the root path!');
+  res.send('Hii, this is the root path!');
 });
 
 // API endpoint to insert data into the database
