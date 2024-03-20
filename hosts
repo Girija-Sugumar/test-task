@@ -1,2 +1,2 @@
 [webservers]
-13.232.129.97 ansible_user=ubuntu ansible_ssh_private_key_file=targetkeypub.pem
+13.232.129.97 ansible_user=ubuntu ansible_ssh_private_key_file=/.ssh/targetkeypub.pem
