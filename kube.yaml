@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deploy
+spec:
+  selector:
+    matchLabels:
+      app: deploy
+  template:
+    metadata:
+      labels:
+        app: deploy
+    spec:
+      containers:
+      - name: deploy-cont
+        image: nikkoworld/ansibleimg
+        env:
+        - name: DB_HOST
+          value: "myrdsdb.cpumy6kiu8rd.ap-south-1.rds.amazonaws.com"
+        - name: DB_USER
+          value: "admin"
+        - name: DB_PASSWORD
+          value: "Gijji_7275"
+        - name: DB_NAME
+          value: "data23"
+        - name: DB_PORT
+          value: "3306"
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 7005
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: deploy-service
+spec:
+  type: LoadBalancer
+  selector:
+    app: deploy
+  ports:
+  - port: 7005
+    targetPort: 7005
