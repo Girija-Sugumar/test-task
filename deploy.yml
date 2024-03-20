@@ -2,6 +2,7 @@
 - name: deploying to kubernetes
   hosts: 13.232.129.97
   become: yes
+  become_user: ubuntu
 
   tasks:
   - name: Add Node.js repository
