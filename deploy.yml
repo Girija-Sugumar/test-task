@@ -22,6 +22,6 @@
   - name: deploying deployment to kube
     kubernetes.core.k8s:
      kubeconfig: /home/ubuntu/.kube/config
-     src: /home/ubuntu/fold/deployment.yml
+     src: /home/ubuntu/fold/deployment.yaml
      state: present
  
