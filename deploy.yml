@@ -1,6 +1,6 @@
 ---
 - name: deploying to kubernetes
-  hosts: 13.232.129.97
+  hosts: webservers
   become: yes
   become_user: ubuntu
 
