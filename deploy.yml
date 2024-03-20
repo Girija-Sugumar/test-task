@@ -24,3 +24,5 @@
      kubeconfig: /home/ubuntu/.kube/config
      src: /home/ubuntu/fold/deployment.yml
      state: present
+  vars:
+    ansible_ssh_common_args: "-o StrictHostKeyChecking=no"
