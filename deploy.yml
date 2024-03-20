@@ -1,0 +1,25 @@
+---
+- name: deploying to kubernetes
+  hosts: 13.232.129.97
+  become: yes
+
+  tasks:
+  - name: Add Node.js repository
+    shell: "curl -fsSL https://deb.nodesource.com/setup_21.x | sudo -E bash -"
+  - name: installing nodejs
+    apt:
+     name: nodejs
+     state: present
+
+  - name: npm install
+    npm:
+     path: /home/ubuntu/fold/
+     state: latest
+  - name: Install kubernetes Python library
+    pip:
+     name: kubernetes
+  - name: deploying deployment to kube
+    kubernetes.core.k8s:
+     kubeconfig: /home/ubuntu/.kube/config
+     src: /home/ubuntu/fold/deployment.yml
+     state: present
