@@ -40,7 +40,7 @@ metadata:
   name: deploy-service
   namespace: default
 spec:
-  type: LoadBalancer
+  type: NodePort
   selector:
     app: deploy
   ports:
